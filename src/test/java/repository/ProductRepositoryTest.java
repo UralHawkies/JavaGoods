@@ -25,7 +25,7 @@ public class ProductRepositoryTest {
         repo.removeById(book1.getId());
 
         Product[] expected = {book2, book3};
-        Product[] actual = repo.findAll();
+        Product[] actual = repo.getAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -40,7 +40,7 @@ public class ProductRepositoryTest {
         repo.removeById(smartphone2.getId());
 
         Product[] expected = {smartphone1, smartphone3};
-        Product[] actual = repo.findAll();
+        Product[] actual = repo.getAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
