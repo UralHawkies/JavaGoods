@@ -1,7 +1,9 @@
 package manager;
 
 import repository.ProductRepository;
+import ru.netology.domain.Book;
 import ru.netology.domain.Product;
+import ru.netology.domain.Smartphone;
 
 public class ProductManager {
 
@@ -17,7 +19,7 @@ public class ProductManager {
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
-        for (Product good : repo.getAll()) {
+        for (Product good : ProductRepository.getAll())
             if (matches(good, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 for (int i = 0; i < result.length; i++) {
@@ -26,16 +28,22 @@ public class ProductManager {
                 tmp[tmp.length - 1] = good;
                 result = tmp;
             }
-        }
         return result;
     }
 
     public boolean matches(Product good, String search) {
-        if(good.getName().contains(search)) {
+        if (good.getName().contains(search)) {
             return true;
-        } else {
-            return false;
         }
+        if (good instanceof Book) {
+            if (((Book) good).getAuthor().contains(search)) {
+                return true;
+            }
+        }
+        if (good instanceof Smartphone) {
+            return ((Smartphone) good).getMadeBy().contains(search);
+        }
+        return false;
     }
 }
 

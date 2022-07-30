@@ -4,7 +4,7 @@ import ru.netology.domain.Product;
 
 public class ProductRepository {
 
-    private Product[] goods = new Product[0];
+    static private Product[] goods = new Product[0];
 
     public void save(Product good) {
         Product[] tmp = new Product[goods.length + 1];
@@ -15,9 +15,10 @@ public class ProductRepository {
         goods = tmp;
     }
 
-    public Product[] getAll() {
+    public static Product[] getAll() {
         return goods;
     }
+
 
     public void removeById(int id) {
         Product[] tmp = new Product[goods.length - 1];

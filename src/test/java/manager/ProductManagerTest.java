@@ -1,12 +1,13 @@
 package manager;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repository.ProductRepository;
-import ru.netology.domain.Product;
 import ru.netology.domain.Book;
+import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class ProductManagerTest {
 
@@ -35,7 +36,7 @@ public class ProductManagerTest {
         Product[] expected = {book1};
         Product[] actual = manager.searchBy("Мать");
 
-        Assertions.assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -43,7 +44,7 @@ public class ProductManagerTest {
         Product[] expected = {book2};
         Product[] actual = manager.searchBy("Лев Толстой");
 
-        Assertions.assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -51,7 +52,7 @@ public class ProductManagerTest {
         Product[] expected = {smartphone1};
         Product[] actual = manager.searchBy("iPhone8");
 
-        Assertions.assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -59,7 +60,7 @@ public class ProductManagerTest {
         Product[] expected = {smartphone3};
         Product[] actual = manager.searchBy("Xiaomi");
 
-        Assertions.assertArrayEquals(expected,actual);
+        assertArrayEquals(expected,actual);
     }
 
     @Test
@@ -67,7 +68,7 @@ public class ProductManagerTest {
         Product[] expected = {};
         Product[] actual = manager.searchBy("Алексей Иванов");
 
-        Assertions.assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -75,7 +76,7 @@ public class ProductManagerTest {
         Product[] expected = {};
         Product[] actual = manager.searchBy("Fly");
 
-        Assertions.assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
 }
