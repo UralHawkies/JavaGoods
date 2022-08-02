@@ -1,15 +1,13 @@
 package manager;
 
 import repository.ProductRepository;
-import ru.netology.domain.Book;
 import ru.netology.domain.Product;
-import ru.netology.domain.Smartphone;
 
 public class ProductManager {
 
     private ProductRepository repo;
 
-    public ProductManager(ProductRepository repo) {
+    public ProductManager (ProductRepository repo) {
         this.repo = repo;
     }
 
@@ -34,16 +32,9 @@ public class ProductManager {
     public boolean matches(Product good, String search) {
         if (good.getName().contains(search)) {
             return true;
+        } else {
+            return false;
         }
-        if (good instanceof Book) {
-            if (((Book) good).getAuthor().contains(search)) {
-                return true;
-            }
-        }
-        if (good instanceof Smartphone) {
-            return ((Smartphone) good).getMadeBy().contains(search);
-        }
-        return false;
     }
 }
 

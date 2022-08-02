@@ -2,9 +2,11 @@ package repository;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.netology.domain.Product;
 import ru.netology.domain.Book;
+import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class ProductRepositoryTest {
 
@@ -27,7 +29,7 @@ public class ProductRepositoryTest {
         Product[] expected = {book2, book3};
         Product[] actual = repo.getAll();
 
-        Assertions.assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -42,7 +44,7 @@ public class ProductRepositoryTest {
         Product[] expected = {smartphone1, smartphone3};
         Product[] actual = repo.getAll();
 
-        Assertions.assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
 }
