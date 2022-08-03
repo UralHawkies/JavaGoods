@@ -4,7 +4,7 @@ import ru.netology.domain.Product;
 
 public class ProductRepository {
 
-    static private Product[] goods = new Product[0];
+    private Product[] goods = new Product[0];
 
     public void save(Product good) {
         Product[] tmp = new Product[goods.length + 1];
@@ -15,7 +15,7 @@ public class ProductRepository {
         goods = tmp;
     }
 
-    public static Product[] getAll() {
+    public Product[] getAll() {
         return goods;
     }
 

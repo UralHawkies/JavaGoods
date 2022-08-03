@@ -32,15 +32,15 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void shouldSearchByBookName() {
-        Product[] expected = {good1};
+    public void shouldSearchByGoodName() {
+        Product[] expected = { good1 };
         Product[] actual = manager.searchBy("Мать");
 
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldNotFindBookByName() {
+    public void shouldNotFindGoodByName() {
         Product[] expected = {};
         Product[] actual = manager.searchBy("Алексей Иванов");
 
@@ -49,7 +49,7 @@ public class ProductManagerTest {
 
     @Test
     public void shouldFindSeveralGoods() {
-        Product[] expected = {good4, good5};
+        Product[] expected = { good4, good5 };
         Product[] actual = manager.searchBy("iPhone");
 
         assertArrayEquals(expected, actual);
