@@ -33,18 +33,15 @@ public class ProductRepositoryTest {
     }
 
     @Test
-    public void shouldSaveAndRemoveSmartphones() {
+    public void shouldNotRemoveIfIncorrectId() {
         ProductRepository repo = new ProductRepository();
 
-        repo.save(smartphone1);
-        repo.save(smartphone2);
-        repo.save(smartphone3);
-        repo.removeById(smartphone2.getId());
+        repo.save(book1);
+        repo.save(book2);
+        repo.save(book3);
 
-        Product[] expected = {smartphone1, smartphone3};
-        Product[] actual = repo.getAll();
-
-        assertArrayEquals(expected, actual);
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            repo.removeById(25);
+        });
     }
-
 }
